@@ -10,16 +10,11 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			int hour = 18;
-			if (hour > 0 && hour < 12)
-			{
+			bool isGoldCustomer = true;
 
-				Console.WriteLine("It's Morning.");
-			}
-			else if (hour >= 12 && hour < 18)
-				Console.WriteLine("It's afternoon.");
-			else
-				Console.WriteLine("It's evening.");
+			float price = isGoldCustomer ? 19.95f : 29.95f;
+
+			Console.WriteLine(price);
 
 		}
 
