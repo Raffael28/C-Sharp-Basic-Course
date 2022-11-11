@@ -8,12 +8,19 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			var name = "Rafael Oliveira";
-			foreach (var letter in name)
+			
+			while (true)
 			{
-				Console.WriteLine(letter);
+				Console.WriteLine("Write your name:");
+				var name = Console.ReadLine();
+				if (!String.IsNullOrWhiteSpace(name))
+				{
+					Console.WriteLine("@Echo:"+ name);
+					break;
+				}
+				continue;
 			}
-
+			
 
 		}
 
