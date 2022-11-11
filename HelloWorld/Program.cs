@@ -1,24 +1,30 @@
 ﻿
 using System;
+using System.Runtime.InteropServices;
 
 
-namespace HelloWorld
+namespace CSharpFundamentals
 {
-	internal class Program
+	public enum ShippingMethod
+	{
+		RegularAirMail=1,
+		RegisteredAirMail=2,
+		Express=3
+	}
+	class Program
 	{
 		static void Main(string[] args)
 		{
-			var firstName = "Rafael";
-			var lastName = "Oliveira";
-			var fn = firstName +" "+ lastName;
-			Console.WriteLine(fn);
+			var method = ShippingMethod.Express;
+			Console.WriteLine(method);
+			Console.WriteLine((int)method);
+			Console.WriteLine(method.ToString());
+			var newMethod = 3;
+			Console.WriteLine((ShippingMethod)newMethod);
 
-			var fullName = string.Format("My name is {0} {1}", firstName, lastName);
-			Console.WriteLine(fullName);
-
-			var names = new string[3] { "Rafael", "Rander", "David" };
-			var formattedNames = string.Join(",", names);
-			Console.WriteLine(formattedNames);
+			var methodName = "RegularAirMail";
+			var shippingMethod=(ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
+			Console.WriteLine(shippingMethod);
 
 
 
