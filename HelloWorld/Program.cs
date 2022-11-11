@@ -13,23 +13,25 @@ namespace CSharpFundamentals
 			int number2;
 			try
 			{
-				Console.WriteLine("Please, enter a number 1:");
+				Console.WriteLine("Please, enter the width of the image:");
 
 				number1 = (Convert.ToInt32(Console.ReadLine()));
-				Console.WriteLine("Please, enter a number 2:");
+
+				Console.WriteLine("Please, the height of the image:");
 
 				number2 = (Convert.ToInt32(Console.ReadLine()));
 				if (number1 > number2)
 				{
-					Console.WriteLine($"{number1} is bigger than {number2}");
+					Console.WriteLine("The image is a landscape");
 				}
 				else if (number1 == number2)
 				{
-					Console.WriteLine($"{number1} is equal {number2}");
+					Console.WriteLine("The image is a square");
 				}
 				else
 				{
-					Console.WriteLine($"{number2} is bigger than {number1}");
+					Console.WriteLine("The image is a portrait");
+
 				}
 			}
 			catch (Exception e)
