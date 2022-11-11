@@ -1,6 +1,6 @@
 ﻿
 using System;
-using HelloWorld.Math;
+
 
 namespace HelloWorld
 {
@@ -8,14 +8,19 @@ namespace HelloWorld
 	{
 		static void Main(string[] args)
 		{
-			var rafael = new Person();
-		
-			rafael.firstName = "Rafael";
-			rafael.lastName = "Oliveira";
-			rafael.Introduce();
-			Calculator calculator = new Calculator();
-			var result = calculator.Add(1, 2);
-			Console.WriteLine(result);
+			var firstName = "Rafael";
+			var lastName = "Oliveira";
+			var fn = firstName +" "+ lastName;
+			Console.WriteLine(fn);
+
+			var fullName = string.Format("My name is {0} {1}", firstName, lastName);
+			Console.WriteLine(fullName);
+
+			var names = new string[3] { "Rafael", "Rander", "David" };
+			var formattedNames = string.Join(",", names);
+			Console.WriteLine(formattedNames);
+
+
 
 		}
 	}
