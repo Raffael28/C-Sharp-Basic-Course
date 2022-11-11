@@ -5,27 +5,19 @@ using System.Runtime.InteropServices;
 
 namespace CSharpFundamentals
 {
-	public enum ShippingMethod
-	{
-		RegularAirMail=1,
-		RegisteredAirMail=2,
-		Express=3
-	}
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			var method = ShippingMethod.Express;
-			Console.WriteLine(method);
-			Console.WriteLine((int)method);
-			Console.WriteLine(method.ToString());
-			var newMethod = 3;
-			Console.WriteLine((ShippingMethod)newMethod);
+			var a = 10;
+			var b = a;
+			b++;
+			Console.WriteLine($"a: {a}, b: {b}");
 
-			var methodName = "RegularAirMail";
-			var shippingMethod=(ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
-			Console.WriteLine(shippingMethod);
-
+			var array1 = new int[3] { 1, 2, 3 };
+			var array2 = array1;
+			array2[0] = 0;
+			Console.WriteLine($"array1[0]: {array1[0]}, array2[0]: {array2[0]}");
 
 
 		}
