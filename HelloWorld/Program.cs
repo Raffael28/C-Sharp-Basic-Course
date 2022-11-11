@@ -8,18 +8,12 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			for (var i = 0; i <= 10; i++)
+			var name = "Rafael Oliveira";
+			foreach (var letter in name)
 			{
-				if (i % 2 == 0)
-					Console.WriteLine(i);
+				Console.WriteLine(letter);
 			}
 
-			for (var i = 10; i > 1; i--)
-			{
-				if(i%2==0) 
-					Console.WriteLine(i);
-			}
-			
 
 		}
 
