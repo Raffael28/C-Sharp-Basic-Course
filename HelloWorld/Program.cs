@@ -14,10 +14,8 @@ namespace CSharpFundamentals
 			switch (season)
 			{
 				case Seasons.Autumn:
-					Console.WriteLine("It's antumn and a beautiful season.");
-					break;
 				case Seasons.Summer:
-					Console.WriteLine("It's perfect to go to the beach.");
+					Console.WriteLine("We've got a promotion");
 					break;
 				case Seasons.Spring:
 					Console.WriteLine("It's spring.");
