@@ -9,21 +9,32 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Please, enter a number between 1 to 10:");
-			var number = 0;
+			int number1;
+			int number2;
 			try
 			{
-				 number = (Convert.ToInt32(Console.ReadLine()));
-				 if (number > 1 && number < 10)
-					 Console.WriteLine("Valid");
-				 else
-				 {
-					 Console.WriteLine("Invalid");
-				 }
+				Console.WriteLine("Please, enter a number 1:");
+
+				number1 = (Convert.ToInt32(Console.ReadLine()));
+				Console.WriteLine("Please, enter a number 2:");
+
+				number2 = (Convert.ToInt32(Console.ReadLine()));
+				if (number1 > number2)
+				{
+					Console.WriteLine($"{number1} is bigger than {number2}");
+				}
+				else if (number1 == number2)
+				{
+					Console.WriteLine($"{number1} is equal {number2}");
+				}
+				else
+				{
+					Console.WriteLine($"{number2} is bigger than {number1}");
+				}
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Invalid");
+				Console.WriteLine("You need to insert a valid number!");
 				
 			}
 
