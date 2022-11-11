@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Net;
 using System.Runtime.InteropServices;
 
 	
@@ -9,28 +10,29 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			int number1;
-			int number2;
+			int speedLimit;
+			int carSpeed;
 			try
 			{
-				Console.WriteLine("Please, enter the width of the image:");
+				Console.WriteLine("Please, enter the speed limit (km/h):");
 
-				number1 = (Convert.ToInt32(Console.ReadLine()));
+				speedLimit = (Convert.ToInt32(Console.ReadLine()));
 
-				Console.WriteLine("Please, the height of the image:");
+				Console.WriteLine("Please, the car speed (km/h):");
 
-				number2 = (Convert.ToInt32(Console.ReadLine()));
-				if (number1 > number2)
+				carSpeed = (Convert.ToInt32(Console.ReadLine()));
+				var demeritPoints = (carSpeed - speedLimit) / 5;
+				if (speedLimit >= carSpeed)
 				{
-					Console.WriteLine("The image is a landscape");
+					Console.WriteLine("OK");
 				}
-				else if (number1 == number2)
+				else if (carSpeed > speedLimit && demeritPoints<=12)
 				{
-					Console.WriteLine("The image is a square");
+					Console.WriteLine($"The car speed is above the limit, you take {demeritPoints} demerit points");
 				}
 				else
 				{
-					Console.WriteLine("The image is a portrait");
+					Console.WriteLine("License Suspended");
 
 				}
 			}
