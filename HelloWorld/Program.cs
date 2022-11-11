@@ -5,21 +5,32 @@ using System.Runtime.InteropServices;
 
 namespace CSharpFundamentals
 {
+	public class Person
+	{
+		public int Age;
+	}
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			var a = 10;
-			var b = a;
-			b++;
-			Console.WriteLine($"a: {a}, b: {b}");
+			var number = 1;
+			Increment(number);
+			Console.WriteLine(number);
+			var person1 = new Person();
+			person1.Age = 20;
+			MadeOlder(person1);
+			Console.WriteLine(person1.Age);
 
-			var array1 = new int[3] { 1, 2, 3 };
-			var array2 = array1;
-			array2[0] = 0;
-			Console.WriteLine($"array1[0]: {array1[0]}, array2[0]: {array2[0]}");
+		}
 
+		public static void Increment(int number)
+		{
+			number += 10;
+		}
 
+		public static void MadeOlder(Person person)
+		{
+			person.Age += 10;
 		}
 	}
 }
