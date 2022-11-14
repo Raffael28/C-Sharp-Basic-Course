@@ -8,20 +8,31 @@ namespace CSharpFundamentals
 {
 	class Program
 	{
-		static void Main(string[] args)
+		static void Main()
 		{
-			
-			Console.WriteLine("Enter your name:");
-			var name = Console.ReadLine();
-			var nameArray = new char[name.Length];
-			for (var i =0; i<name.Length; i++)
+			var numbers = new List<int>();
+			int prevNumber = 0;
+			int newNumber = 0;
+
+			for (int i = 0; i < 5; i++)
 			{
-				nameArray[i] = name[i];
+				prevNumber = newNumber;
+				while (newNumber == prevNumber)
+				{
+					Console.WriteLine("Enter a number:");
+					newNumber = Convert.ToInt32(Console.ReadLine());
+					if (newNumber == prevNumber)
+					{
+						Console.WriteLine("You need to enter a different number.");
+					}
+				}
+				
+				numbers.Add(newNumber);
 			}
-			Array.Reverse(nameArray);
-			foreach (var letter in nameArray)
+			numbers.Sort();
+			foreach (var n in numbers)
 			{
-				Console.WriteLine(letter);
+				Console.WriteLine(n);
 			}
 		}
 
