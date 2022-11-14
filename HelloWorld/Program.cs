@@ -1,7 +1,7 @@
 ﻿
-using System;
-using System.Collections.Generic;
 
+
+using System;
 
 namespace CSharpFundamentals
 {
@@ -9,43 +9,21 @@ namespace CSharpFundamentals
 	{
 		static void Main()
 		{
-			bool listIsInvalid = true;
-			var numbers = "";
-			while (listIsInvalid)
-			{
-				{
-					Console.WriteLine("Enter a list of numbers separated by a comma with 5 numbers or more:");
-				}
-				numbers = Console.ReadLine();
-				var numberArray = new string[numbers.Length];
-				numberArray = numbers.Split(',');
+			var dateTime = new DateTime(2022, 11, 14);
+			var now = DateTime.Now;
+			var today = DateTime.Today;
 
-				if (numberArray.Length < 5)
-				{
-					Console.WriteLine("Invalid List");
-					continue;
-				}
-				listIsInvalid = false;
-				var smallNumbers = new List<int>();
-				foreach (var number in numberArray)
-				{
-					smallNumbers.Add(Convert.ToInt32(number));
-				}
-				smallNumbers.Sort();
-				for (int i = 0; i < 3; i++)
-				{
-					Console.WriteLine(smallNumbers[i]);
-					;
-				}
+			Console.WriteLine("Hour: "+ now.Hour);
+			Console.WriteLine("Minute: "+ now.Minute);
 
-			}
+			var tomorrow = today.AddDays(1);
+			var yesterday = today.AddDays(-1);
+			Console.WriteLine(now.ToLongTimeString());
+			Console.WriteLine(now.ToShortTimeString());
+			Console.WriteLine(now.ToLongDateString());
+			Console.WriteLine(now.ToShortDateString());
+			Console.WriteLine(now.ToString("dd/MM/yyyy"));
 
-
-			
-
-
-			
-			
 		}
 
 
