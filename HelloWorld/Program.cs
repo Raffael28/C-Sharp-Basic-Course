@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Xml.Schema;
 
 
 namespace CSharpFundamentals
@@ -9,21 +10,19 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			var names = new List<string>();
-			var name = "insert";
-			while (name != "")
+			
+			Console.WriteLine("Enter your name:");
+			var name = Console.ReadLine();
+			var nameArray = new char[name.Length];
+			for (var i =0; i<name.Length; i++)
 			{
-				Console.WriteLine("Enter the friend name:");
-				name = Console.ReadLine();
-				if (name!="")
-					names.Add(name);
+				nameArray[i] = name[i];
 			}
-			if (names.Count==1)
-				Console.WriteLine($"{names[0]} liked your post.");
-			else if(names.Count==2) 
-				Console.WriteLine($"{names[0]} and {names[1]} liked your post.");
-			else if (names.Count>2) 
-				Console.WriteLine($"{names[0]}, {names[1]} and {names.Count-2} more people liked your post.");
+			Array.Reverse(nameArray);
+			foreach (var letter in nameArray)
+			{
+				Console.WriteLine(letter);
+			}
 		}
 
 
