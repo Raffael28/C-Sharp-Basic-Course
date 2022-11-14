@@ -8,15 +8,27 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Enter a positive integer number:");
-			var n = Console.ReadLine();
-			var f = 1;
-			for (var  i = Convert.ToInt32(n); i>0; i--)
+			var random = new Random();
+			var r = random.Next(1, 10);
+			var n = "0";
+			var i = 0;
+			while (Convert.ToInt32(n) != r && i<4 )
 			{
-				f = f * i;
+				Console.WriteLine("Guess the number between 1 and 10:");
+				n = Console.ReadLine();
+				i++;
 			}
 
-			Console.WriteLine($"The factorial of the number is {f}");
+			if (Convert.ToInt32(n) != r)
+			{
+				Console.WriteLine("You Lost");
+				Console.WriteLine(r);
+
+			}
+			else
+			{
+				Console.WriteLine("You Won!");
+			}
 		}
 
 		
