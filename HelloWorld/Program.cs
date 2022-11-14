@@ -9,33 +9,21 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			var numbers = new List<int>(){1,2,3,4};
-			numbers.Add(1);
-			numbers.AddRange(new int[3] {3,1,7});
-			foreach (var number in numbers)
+			var names = new List<string>();
+			var name = "insert";
+			while (name != "")
 			{
-				Console.WriteLine(number);
+				Console.WriteLine("Enter the friend name:");
+				name = Console.ReadLine();
+				if (name!="")
+					names.Add(name);
 			}
-			Console.WriteLine();
-			Console.WriteLine($"Index of first 1: {numbers.IndexOf(1)}");
-			Console.WriteLine($"Index of last 1: {numbers.LastIndexOf(1)}");
-
-			Console.WriteLine($"Count {numbers.Count}");
-
-			for (var i = 0; i < numbers.Count; i++)
-			{
-				if (numbers[i] == 1)
-				{
-					numbers.Remove(numbers[i]);
-				}
-			}
-
-			foreach (var number in numbers)
-			{
-				Console.WriteLine(number);
-			}
-
-
+			if (names.Count==1)
+				Console.WriteLine($"{names[0]} liked your post.");
+			else if(names.Count==2) 
+				Console.WriteLine($"{names[0]} and {names[1]} liked your post.");
+			else if (names.Count>2) 
+				Console.WriteLine($"{names[0]}, {names[1]} and {names.Count-2} more people liked your post.");
 		}
 
 
