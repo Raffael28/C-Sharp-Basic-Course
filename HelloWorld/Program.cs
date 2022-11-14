@@ -8,19 +8,14 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			var random = new Random();
-
-			const int passwordLength = 10;
-
-			var buffer = new char[passwordLength];
-			for (var i = 0; i < passwordLength; i++)
+			var n = 0;
+			for (var i = 1; i <= 100; i++)
 			{
-				buffer[i] = (char)('a' + random.Next(0,26));
+				if (i%3 == 0) n++;
 
 			}
 
-			var password = new string(buffer);
-			Console.WriteLine(password);
+			Console.WriteLine($"There are {n} numbers divisible by 3 between 1 and 100.");
 		}
 
 		
