@@ -9,30 +9,32 @@ namespace CSharpFundamentals
 	{
 		static void Main()
 		{
-		// Creating
-		var timeSpan = new TimeSpan(1, 2, 3);
+			var fullName = "Rafael Oliveira ";
+			Console.WriteLine($"Trim: {fullName.Trim()}");
+			Console.WriteLine($"ToUpper: {fullName.ToUpper()}");
 
-		var timeSpan2 = new TimeSpan(1, 0, 0);
-		var timeSpan3 = TimeSpan.FromHours(1);
+			var index = fullName.IndexOf(" ");
+			var firstName = fullName.Substring(0, index);
+			var lastName = fullName.Substring(index + 1);
+			Console.WriteLine($"firstName: {firstName}");
+			Console.WriteLine($"lastName: {lastName}");
 
-		var start = DateTime.Now;
-		var end = DateTime.Now.AddMinutes(2);
-		var duration = end - start;
-		Console.WriteLine("Duration: "+duration);
+			var names = fullName.Split(' ');
+			Console.WriteLine($"firstName: {names[0]}");
+			Console.WriteLine($"lastName: {names[1]}");
 
-		//Properties
-		Console.WriteLine("Minutes: " + timeSpan.Minutes);
-		Console.WriteLine("Total Minutes: " + timeSpan.TotalMinutes);
+			Console.WriteLine(fullName.Replace("Oliveira", "Rodrigues"));
 
-		//Add
-		Console.WriteLine("Add Example: " + timeSpan.Add(TimeSpan.FromMinutes(8))); 
-		Console.WriteLine("Subtract Example: " + timeSpan.Subtract(TimeSpan.FromMinutes(8)));
+			if (String.IsNullOrWhiteSpace(" "))
+				Console.WriteLine("Invalid");
 
-		//ToString
-		Console.WriteLine("ToString: " + timeSpan.ToString());
+			var str = "25";
+			var age = Convert.ToByte(str);
+			Console.WriteLine(age);
 
-		//Parse
-		Console.WriteLine("Parse: " +TimeSpan.Parse("01:02:20"));
+			float price = 19.95f;
+			Console.WriteLine(price.ToString("C0"));
+
 
 		}
 
