@@ -9,40 +9,43 @@ namespace CSharpFundamentals
 	{
 		static void Main()
 		{
-			var numbers = new List<int>();
-			var newNumber = "0";
-			while (newNumber != "Quit")
+			bool listIsInvalid = true;
+			var numbers = "";
+			while (listIsInvalid)
 			{
-				Console.WriteLine("Enter a number, or type Quit to exit:");
-				newNumber = Console.ReadLine();
-				if (newNumber == "Quit")
-					break;
-				numbers.Add(Convert.ToInt32(newNumber));
+				{
+					Console.WriteLine("Enter a list of numbers separated by a comma with 5 numbers or more:");
+				}
+				numbers = Console.ReadLine();
+				var numberArray = new string[numbers.Length];
+				numberArray = numbers.Split(',');
+
+				if (numberArray.Length < 5)
+				{
+					Console.WriteLine("Invalid List");
+					continue;
+				}
+				listIsInvalid = false;
+				var smallNumbers = new List<int>();
+				foreach (var number in numberArray)
+				{
+					smallNumbers.Add(Convert.ToInt32(number));
+				}
+				smallNumbers.Sort();
+				for (int i = 0; i < 3; i++)
+				{
+					Console.WriteLine(smallNumbers[i]);
+					;
+				}
+
 			}
 
-			if (numbers.Count == 1)
-			{
-				Console.WriteLine(numbers[0]);
-			}
-			else if(numbers.Count!= 0)
-			{
-				var prevNumbers = new List<int>();
-				var isDuplicated = false;
-				foreach (var number in numbers)
-				{
-					foreach (var prevNumber in prevNumbers)
-					{
-						if (number == prevNumber)
-							isDuplicated = true;
-					}
-					if (!isDuplicated)
-					{
-						Console.WriteLine(number);
-					}
-					prevNumbers.Add(number);
-					isDuplicated = false;
-				}
-			}
+
+			
+
+
+			
+			
 		}
 
 
