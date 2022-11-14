@@ -1,7 +1,6 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Xml.Schema;
 
 
 namespace CSharpFundamentals
@@ -11,28 +10,38 @@ namespace CSharpFundamentals
 		static void Main()
 		{
 			var numbers = new List<int>();
-			int prevNumber = 0;
-			int newNumber = 0;
-
-			for (int i = 0; i < 5; i++)
+			var newNumber = "0";
+			while (newNumber != "Quit")
 			{
-				prevNumber = newNumber;
-				while (newNumber == prevNumber)
-				{
-					Console.WriteLine("Enter a number:");
-					newNumber = Convert.ToInt32(Console.ReadLine());
-					if (newNumber == prevNumber)
-					{
-						Console.WriteLine("You need to enter a different number.");
-					}
-				}
-				
-				numbers.Add(newNumber);
+				Console.WriteLine("Enter a number, or type Quit to exit:");
+				newNumber = Console.ReadLine();
+				if (newNumber == "Quit")
+					break;
+				numbers.Add(Convert.ToInt32(newNumber));
 			}
-			numbers.Sort();
-			foreach (var n in numbers)
+
+			if (numbers.Count == 1)
 			{
-				Console.WriteLine(n);
+				Console.WriteLine(numbers[0]);
+			}
+			else if(numbers.Count!= 0)
+			{
+				var prevNumbers = new List<int>();
+				var isDuplicated = false;
+				foreach (var number in numbers)
+				{
+					foreach (var prevNumber in prevNumbers)
+					{
+						if (number == prevNumber)
+							isDuplicated = true;
+					}
+					if (!isDuplicated)
+					{
+						Console.WriteLine(number);
+					}
+					prevNumbers.Add(number);
+					isDuplicated = false;
+				}
 			}
 		}
 
