@@ -8,27 +8,22 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			var random = new Random();
-			var r = random.Next(1, 10);
-			var n = "0";
-			var i = 0;
-			while (Convert.ToInt32(n) != r && i<4 )
-			{
-				Console.WriteLine("Guess the number between 1 and 10:");
-				n = Console.ReadLine();
-				i++;
-			}
 
-			if (Convert.ToInt32(n) != r)
-			{
-				Console.WriteLine("You Lost");
-				Console.WriteLine(r);
+		
+				Console.WriteLine("Enter a series of numbers separated by a comma:");
+				var n = Console.ReadLine();
+				var numberArray = n.Split(',');
+				var max = 0;
+				for (int i = 0; i < numberArray.Length; i++)
+				{
+					if (Convert.ToInt32(numberArray[i]) > max)
+					{
+						max = Convert.ToInt32(numberArray[i]);
+					}
+				}
 
-			}
-			else
-			{
-				Console.WriteLine("You Won!");
-			}
+				Console.WriteLine($"The biggest number is {max}");
+
 		}
 
 		
