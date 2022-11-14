@@ -8,14 +8,21 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			var n = 0;
-			for (var i = 1; i <= 100; i++)
-			{
-				if (i%3 == 0) n++;
+			var n = "0";
+			var sum = 0;
 
+			while (n != "ok")
+			{
+				Console.WriteLine("Enter a number to sum, or ok to exit: ");
+				n = Console.ReadLine();
+				if (n == "ok")
+				{
+					break;
+				}
+				sum += Convert.ToInt32(n);
 			}
 
-			Console.WriteLine($"There are {n} numbers divisible by 3 between 1 and 100.");
+			Console.WriteLine($"The sum of the numbers are {sum}");
 		}
 
 		
