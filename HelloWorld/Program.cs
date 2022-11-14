@@ -9,20 +9,30 @@ namespace CSharpFundamentals
 	{
 		static void Main()
 		{
-			var dateTime = new DateTime(2022, 11, 14);
-			var now = DateTime.Now;
-			var today = DateTime.Today;
+		// Creating
+		var timeSpan = new TimeSpan(1, 2, 3);
 
-			Console.WriteLine("Hour: "+ now.Hour);
-			Console.WriteLine("Minute: "+ now.Minute);
+		var timeSpan2 = new TimeSpan(1, 0, 0);
+		var timeSpan3 = TimeSpan.FromHours(1);
 
-			var tomorrow = today.AddDays(1);
-			var yesterday = today.AddDays(-1);
-			Console.WriteLine(now.ToLongTimeString());
-			Console.WriteLine(now.ToShortTimeString());
-			Console.WriteLine(now.ToLongDateString());
-			Console.WriteLine(now.ToShortDateString());
-			Console.WriteLine(now.ToString("dd/MM/yyyy"));
+		var start = DateTime.Now;
+		var end = DateTime.Now.AddMinutes(2);
+		var duration = end - start;
+		Console.WriteLine("Duration: "+duration);
+
+		//Properties
+		Console.WriteLine("Minutes: " + timeSpan.Minutes);
+		Console.WriteLine("Total Minutes: " + timeSpan.TotalMinutes);
+
+		//Add
+		Console.WriteLine("Add Example: " + timeSpan.Add(TimeSpan.FromMinutes(8))); 
+		Console.WriteLine("Subtract Example: " + timeSpan.Subtract(TimeSpan.FromMinutes(8)));
+
+		//ToString
+		Console.WriteLine("ToString: " + timeSpan.ToString());
+
+		//Parse
+		Console.WriteLine("Parse: " +TimeSpan.Parse("01:02:20"));
 
 		}
 
