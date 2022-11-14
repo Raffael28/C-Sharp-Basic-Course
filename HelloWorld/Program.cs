@@ -8,21 +8,15 @@ namespace CSharpFundamentals
 	{
 		static void Main(string[] args)
 		{
-			var n = "0";
-			var sum = 0;
-
-			while (n != "ok")
+			Console.WriteLine("Enter a positive integer number:");
+			var n = Console.ReadLine();
+			var f = 1;
+			for (var  i = Convert.ToInt32(n); i>0; i--)
 			{
-				Console.WriteLine("Enter a number to sum, or ok to exit: ");
-				n = Console.ReadLine();
-				if (n == "ok")
-				{
-					break;
-				}
-				sum += Convert.ToInt32(n);
+				f = f * i;
 			}
 
-			Console.WriteLine($"The sum of the numbers are {sum}");
+			Console.WriteLine($"The factorial of the number is {f}");
 		}
 
 		
