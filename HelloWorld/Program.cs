@@ -1,57 +1,41 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
-	
+
 namespace CSharpFundamentals
 {
 	class Program
 	{
 		static void Main(string[] args)
 		{
-			var numbers = new [] { 1, 8, 7, 22, 32, 9 };
-
-			//Length
-			Console.WriteLine($"length: {numbers.Length}");
-
-			//IndexOf()
-			Console.WriteLine($"Index of 9: {Array.IndexOf(numbers, 22)}");
-
-			//Clear()
-			Array.Clear(numbers, 0,3);
-			Console.WriteLine("Effect of Clear()");
+			var numbers = new List<int>(){1,2,3,4};
+			numbers.Add(1);
+			numbers.AddRange(new int[3] {3,1,7});
 			foreach (var number in numbers)
 			{
 				Console.WriteLine(number);
 			}
+			Console.WriteLine();
+			Console.WriteLine($"Index of first 1: {numbers.IndexOf(1)}");
+			Console.WriteLine($"Index of last 1: {numbers.LastIndexOf(1)}");
 
-			//Copy()
+			Console.WriteLine($"Count {numbers.Count}");
 
-			var newNumbers = new int[4];
-			Array.Copy(numbers, newNumbers, 4);
-			Console.WriteLine("Effect of Copy()");
-			foreach (var number in newNumbers)
+			for (var i = 0; i < numbers.Count; i++)
 			{
-				Console.WriteLine(number);
+				if (numbers[i] == 1)
+				{
+					numbers.Remove(numbers[i]);
+				}
 			}
-
-			//Sort()
-			Array.Sort(numbers);
-			Console.WriteLine("Effect of Sort()");
 
 			foreach (var number in numbers)
 			{
 				Console.WriteLine(number);
 			}
 
-			//Reverse()
 
-			Array.Reverse(numbers);
-			Console.WriteLine("Effect of Reverse()");
-
-			foreach (var number in numbers)
-			{
-				Console.WriteLine(number);
-			}
 		}
 
 
