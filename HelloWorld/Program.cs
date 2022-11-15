@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Xml;
 
 
 namespace CSharpFundamentals
@@ -8,25 +9,29 @@ namespace CSharpFundamentals
 	{
 		static void Main()
 		{
-			var path = @"c:\somefile.jpg";
-
-			File.Copy(@"c:\temp\myfile.jpg", @"d:\temp\myfile.jpg", true);
-			File.Delete(path);
-			if (File.Exists(path))
+			Directory.CreateDirectory(@"C:\Windows\Temp\NewFolder" );
+			var files =Directory.GetFiles(@"C:\Windows\Temp");
+			foreach (var file in files)
 			{
-				//	
+				Console.WriteLine(file);
 			}
 
-			var fileInfo = new FileInfo(path);
-			fileInfo.CopyTo("...");
-			fileInfo.Delete();
-			if (fileInfo.Exists)
+			Console.WriteLine();
+			var directories = Directory.GetDirectories(@"C:\Windows\Temp");
+			foreach (var directory in directories)
 			{
-				//
+				Console.WriteLine(directory);
 			}
+
+			Directory.Exists("...");
+
+			var directoryInfo = new DirectoryInfo(@"C:\Windows\Temp");
+			directoryInfo.GetFiles();
+			directoryInfo.GetDirectories();
+
 		}
 
-	
+
 
 	}
 }
