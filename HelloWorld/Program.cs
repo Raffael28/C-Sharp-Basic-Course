@@ -9,25 +9,13 @@ namespace CSharpFundamentals
 	{
 		static void Main()
 		{
-			Directory.CreateDirectory(@"C:\Windows\Temp\NewFolder" );
-			var files =Directory.GetFiles(@"C:\Windows\Temp");
-			foreach (var file in files)
-			{
-				Console.WriteLine(file);
-			}
+			var path = @"C:\Users\rafae\source\repos\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe";
 
-			Console.WriteLine();
-			var directories = Directory.GetDirectories(@"C:\Windows\Temp");
-			foreach (var directory in directories)
-			{
-				Console.WriteLine(directory);
-			}
+			Console.WriteLine($"Extension: {Path.GetExtension(path)}");
+			Console.WriteLine($"File Name: {Path.GetFileName(path)}");
+			Console.WriteLine($"File Name without Extension: {Path.GetFileNameWithoutExtension(path)}");
+			Console.WriteLine($"Directory Name: {Path.GetDirectoryName(path)}");
 
-			Directory.Exists("...");
-
-			var directoryInfo = new DirectoryInfo(@"C:\Windows\Temp");
-			directoryInfo.GetFiles();
-			directoryInfo.GetDirectories();
 
 		}
 
