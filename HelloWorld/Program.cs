@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using HelloWorld;
+using System.IO;
+
 
 namespace CSharpFundamentals
 {
@@ -9,22 +8,22 @@ namespace CSharpFundamentals
 	{
 		static void Main()
 		{
-			var builder = new StringBuilder("Hello world");
-			builder
-				.Append('-', 10)
-				.AppendLine()
-				.Append("Header")
-				.AppendLine()
-				.Append('-', 10)
-				.Replace('-', '+')
-				.Remove(0, 10)
-				.Insert(0, new string('-', 10));
+			var path = @"c:\somefile.jpg";
 
-			Console.WriteLine(builder);
+			File.Copy(@"c:\temp\myfile.jpg", @"d:\temp\myfile.jpg", true);
+			File.Delete(path);
+			if (File.Exists(path))
+			{
+				//	
+			}
 
-			Console.WriteLine("First Char: " + builder[0]);
-
-
+			var fileInfo = new FileInfo(path);
+			fileInfo.CopyTo("...");
+			fileInfo.Delete();
+			if (fileInfo.Exists)
+			{
+				//
+			}
 		}
 
 	
